@@ -4,6 +4,12 @@ import ApiContext from '../ApiContext'
 import config from '../config'
 import './AddNote.css'
 
+
+const validateName = () => {
+  if (this.state.name === '') {
+    return true;
+  }
+};
 export default class AddNote extends Component {
   static defaultProps = {
     history: {
