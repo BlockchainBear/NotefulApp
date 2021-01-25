@@ -1,4 +1,2 @@
-//export default {
-//  API_ENDPOINT: 'http://localhost:9090'
-//}
-//npm start
+export default {  API_ENDPOINT: 'http://localhost:9090'
+}

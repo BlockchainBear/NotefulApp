@@ -5,11 +5,7 @@ import config from '../config'
 import './AddNote.css'
 
 
-const validateName = () => {
-  if (this.state.name === '') {
-    return true;
-  }
-};
+
 export default class AddNote extends Component {
   static defaultProps = {
     history: {
@@ -26,6 +22,13 @@ export default class AddNote extends Component {
       folderId: e.target['note-folder-id'].value,
       modified: new Date(),
     }
+     const err = validateForm(newNote.name ,newNote.content);
+     if (err) {
+        (alert(err))
+     }
+     else {
+
+     
     fetch(`${config.API_ENDPOINT}/notes`, {
       method: 'POST',
       headers: {
@@ -45,8 +48,9 @@ export default class AddNote extends Component {
       .catch(error => {
         console.error({ error })
       })
-  }
-
+     }
+    }
+  
   render() {
     const { folders=[] } = this.context
     return (
@@ -88,3 +92,11 @@ export default class AddNote extends Component {
     )
   }
 }
+const validateForm = (name, content) => {
+  if (!name || name.length < 3) {
+    return 'Title must be atleast 3 characters long';
+  } else if (!content || content.length < 3) {
+    return 'Body must be atleast 3 characters long';
+  }
+};
+

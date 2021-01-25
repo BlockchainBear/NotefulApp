@@ -3,6 +3,8 @@ import NotefulForm from '../NotefulForm/NotefulForm'
 import ApiContext from '../ApiContext'
 import config from '../config'
 import './AddFolder.css'
+import PropTypes from 'prop-types'
+
 
 export default class AddFolder extends Component {
   static defaultProps = {
@@ -59,3 +61,13 @@ export default class AddFolder extends Component {
     )
   }
 }
+
+AddFolder.PropTypes = {
+  handleSubmit: PropTypes.func.isRequried
+}
+
+AddFolder.defaultProps = {
+  id: 'id',
+  title: 'untitled'
+}
+

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ApiContext from '../ApiContext'
 import config from '../config'
 import './Note.css'
-
+import PropTypes from "prop-types"
 export default class Note extends React.Component {
   static defaultProps ={
     onDeleteNote: () => {},
@@ -67,4 +67,14 @@ export default class Note extends React.Component {
       </div>
     )
   }
+}
+Note.PropTypes = {
+  onDeleteNote: PropTypes.func,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+}
+
+Note.defaultProps = {
+  id: 'id',
+  title: 'untitled'
 }
