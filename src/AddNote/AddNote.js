@@ -3,7 +3,7 @@ import NotefulForm from '../NotefulForm/NotefulForm'
 import ApiContext from '../ApiContext'
 import config from '../config'
 import './AddNote.css'
-
+import PropTypes from 'prop-types'
 
 
 export default class AddNote extends Component {
@@ -100,3 +100,13 @@ const validateForm = (name, content) => {
   }
 };
 
+AddNote.PropTypes = {
+  handleDeleteNote: PropTypes.func,
+  id: PropTypes.string.isRequired,
+  
+}
+
+AddNote.defaultProps = {
+  id: 'id',
+  title: 'untitled'
+}
