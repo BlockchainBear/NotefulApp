@@ -103,7 +103,7 @@ const validateForm = (name, content) => {
 AddNote.PropTypes = {
   handleDeleteNote: PropTypes.func,
   id: PropTypes.string.isRequired,
-  
+
 }
 
 AddNote.defaultProps = {
