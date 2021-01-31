@@ -17,10 +17,22 @@ class App extends Component {
     folders: [],
   };
 
+//chatbox, front end website, database, api, and link tracking 
+//start immedately 
+//august september BETA smaller MVP june/july
+
+
+  //api token undefined, set up routes to hit for data, then database and routes to return from thedate  for full stack
   componentDidMount() {
     Promise.all([
-      fetch(`${config.API_ENDPOINT}/notes`),
-      fetch(`${config.API_ENDPOINT}/folders`)
+      fetch(`${config.API_ENDPOINT}/notes`,{headers: {
+        'content-type': 'application/json',
+        'Authorization': 'Bearer '+config.API_TOKEN, 
+      } }),
+      fetch(`${config.API_ENDPOINT}/folders`,{headers: {
+        'content-type': 'application/json',
+        'Authorization': 'Bearer '+config.API_TOKEN, 
+      } })
     ])
       .then(([notesRes, foldersRes]) => {
         if (!notesRes.ok)
